@@ -1,0 +1,136 @@
+<rsb:script xmlns:rsb="http://www.rssbus.com/ns/rsbscript/2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- See Column Definitions to specify column behavior and use XPaths to extract column values from JSON. -->
+  <rsb:info title="groups" desc="Generated schema file." xmlns:other="http://www.rssbus.com/ns/rsbscript/2/other">
+    <!-- You can modify the name, type, and column size here.  The name must match the values in the rsb:script block below -->
+    <attr name="configuration_SoracomAir_binaryParserEnabled"                              xs:type="boolean" readonly="false" other:xPath="configuration/SoracomAir/binaryParserEnabled"                                            />
+    <attr name="configuration_SoracomAir_binaryParserFormat"                               xs:type="unknown" readonly="false" other:xPath="configuration/SoracomAir/binaryParserFormat"                                             />
+    <attr name="configuration_SoracomAir_dnsServers"                                       xs:type="string"  readonly="false" other:xPath="configuration/SoracomAir/dnsServers"                                           other:valueFormat="delimited" />
+    <attr name="configuration_SoracomAir_metadata_allowOrigin"                             xs:type="unknown" readonly="false" other:xPath="configuration/SoracomAir/metadata/allowOrigin"                                           />
+    <attr name="configuration_SoracomAir_metadata_enabled"                                 xs:type="boolean" readonly="false" other:xPath="configuration/SoracomAir/metadata/enabled"                                               />
+    <attr name="configuration_SoracomAir_metadata_readonly"                                xs:type="boolean" readonly="false" other:xPath="configuration/SoracomAir/metadata/readonly"                                              />
+    <attr name="configuration_SoracomAir_slsDisabled"                                      xs:type="boolean" readonly="false" other:xPath="configuration/SoracomAir/slsDisabled"                                                    />
+    <attr name="configuration_SoracomAir_useCustomDns"                                     xs:type="boolean" readonly="false" other:xPath="configuration/SoracomAir/useCustomDns"                                                   />
+    <attr name="configuration_SoracomAir_useVpg"                                           xs:type="boolean" readonly="false" other:xPath="configuration/SoracomAir/useVpg"                                                         />
+    <attr name="configuration_SoracomAir_vpgId"                                            xs:type="unknown" readonly="false" other:xPath="configuration/SoracomAir/vpgId"                                                          />
+    <attr name="configuration_SoracomBeam_lora:__beam_soracom_io_8888_addDeviceIdHeader"   xs:type="boolean" readonly="false" other:xPath="configuration/SoracomBeam/lora://['beam.soracom.io:8888']/addDeviceIdHeader"             />
+    <attr name="configuration_SoracomBeam_lora:__beam_soracom_io_8888_addEquipmentHeader"  xs:type="boolean" readonly="false" other:xPath="configuration/SoracomBeam/lora://['beam.soracom.io:8888']/addEquipmentHeader"            />
+    <attr name="configuration_SoracomBeam_lora:__beam_soracom_io_8888_addSignature"        xs:type="boolean" readonly="false" other:xPath="configuration/SoracomBeam/lora://['beam.soracom.io:8888']/addSignature"                  />
+    <attr name="configuration_SoracomBeam_lora:__beam_soracom_io_8888_addSubscriberHeader" xs:type="boolean" readonly="false" other:xPath="configuration/SoracomBeam/lora://['beam.soracom.io:8888']/addSubscriberHeader"           />
+    <attr name="configuration_SoracomBeam_lora:__beam_soracom_io_8888_destination"         xs:type="string"  readonly="false" other:xPath="configuration/SoracomBeam/lora://['beam.soracom.io:8888']/destination"                   />
+    <attr name="configuration_SoracomBeam_lora:__beam_soracom_io_8888_enabled"             xs:type="boolean" readonly="false" other:xPath="configuration/SoracomBeam/lora://['beam.soracom.io:8888']/enabled"                       />
+    <attr name="configuration_SoracomBeam_lora:__beam_soracom_io_8888_name"                xs:type="string"  readonly="false" other:xPath="configuration/SoracomBeam/lora://['beam.soracom.io:8888']/name"                          />
+    <attr name="configuration_SoracomBeam_lora:__beam_soracom_io_8888_skipStatusCode"      xs:type="boolean" readonly="false" other:xPath="configuration/SoracomBeam/lora://['beam.soracom.io:8888']/skipStatusCode"                />
+    <attr name="configuration_SoracomBeam_lora:__beam_soracom_io_8888_useClientCert"       xs:type="boolean" readonly="false" other:xPath="configuration/SoracomBeam/lora://['beam.soracom.io:8888']/useClientCert"                 />
+    <attr name="configuration_SoracomBeam_lora:__beam_soracom_io_8888_useGoogleIoT"        xs:type="boolean" readonly="false" other:xPath="configuration/SoracomBeam/lora://['beam.soracom.io:8888']/useGoogleIoT"                  />
+    <attr name="configuration_SoracomBeam_lora:__beam_soracom_io_addDeviceIdHeader"        xs:type="boolean" readonly="false" other:xPath="configuration/SoracomBeam/lora://['beam.soracom.io']/addDeviceIdHeader"                  />
+    <attr name="configuration_SoracomBeam_lora:__beam_soracom_io_addEquipmentHeader"       xs:type="boolean" readonly="false" other:xPath="configuration/SoracomBeam/lora://['beam.soracom.io']/addEquipmentHeader"                 />
+    <attr name="configuration_SoracomBeam_lora:__beam_soracom_io_addSignature"             xs:type="boolean" readonly="false" other:xPath="configuration/SoracomBeam/lora://['beam.soracom.io']/addSignature"                       />
+    <attr name="configuration_SoracomBeam_lora:__beam_soracom_io_addSubscriberHeader"      xs:type="boolean" readonly="false" other:xPath="configuration/SoracomBeam/lora://['beam.soracom.io']/addSubscriberHeader"                />
+    <attr name="configuration_SoracomBeam_lora:__beam_soracom_io_destination"              xs:type="string"  readonly="false" other:xPath="configuration/SoracomBeam/lora://['beam.soracom.io']/destination"                        />
+    <attr name="configuration_SoracomBeam_lora:__beam_soracom_io_enabled"                  xs:type="boolean" readonly="false" other:xPath="configuration/SoracomBeam/lora://['beam.soracom.io']/enabled"                            />
+    <attr name="configuration_SoracomBeam_lora:__beam_soracom_io_name"                     xs:type="string"  readonly="false" other:xPath="configuration/SoracomBeam/lora://['beam.soracom.io']/name"                               />
+    <attr name="configuration_SoracomBeam_lora:__beam_soracom_io_skipStatusCode"           xs:type="boolean" readonly="false" other:xPath="configuration/SoracomBeam/lora://['beam.soracom.io']/skipStatusCode"                     />
+    <attr name="configuration_SoracomBeam_lora:__beam_soracom_io_useClientCert"            xs:type="boolean" readonly="false" other:xPath="configuration/SoracomBeam/lora://['beam.soracom.io']/useClientCert"                      />
+    <attr name="configuration_SoracomBeam_lora:__beam_soracom_io_useGoogleIoT"             xs:type="boolean" readonly="false" other:xPath="configuration/SoracomBeam/lora://['beam.soracom.io']/useGoogleIoT"                       />
+    <attr name="configuration_SoracomFunnel_contentType"                                   xs:type="string"  readonly="false" other:xPath="configuration/SoracomFunnel/contentType"                                                 />
+    <attr name="configuration_SoracomFunnel_credentialsId"                                 xs:type="string"  readonly="false" other:xPath="configuration/SoracomFunnel/credentialsId"                                               />
+    <attr name="configuration_SoracomFunnel_destination_provider"                          xs:type="string"  readonly="false" other:xPath="configuration/SoracomFunnel/destination/provider"                                        />
+    <attr name="configuration_SoracomFunnel_destination_resourceUrl"                       xs:type="string"  readonly="false" other:xPath="configuration/SoracomFunnel/destination/resourceUrl"                                     />
+    <attr name="configuration_SoracomFunnel_destination_service"                           xs:type="string"  readonly="false" other:xPath="configuration/SoracomFunnel/destination/service"                                         />
+    <attr name="configuration_SoracomFunnel_enabled"                                       xs:type="boolean" readonly="false" other:xPath="configuration/SoracomFunnel/enabled"                                                     />
+    <attr name="configuration_SoracomHarvest_enabled"                                      xs:type="boolean" readonly="false" other:xPath="configuration/SoracomHarvest/enabled"                                                    />
+    <attr name="createdAt"                                                                 xs:type="long"    readonly="false" other:xPath="createdAt"                                                                               />
+    <attr name="createdTime"                                                               xs:type="long"    readonly="false" other:xPath="createdTime"                                                                             />
+    <attr name="groupId"                                                                   xs:type="string"  readonly="false" other:xPath="groupId"                                                                                 />
+    <attr name="lastModifiedAt"                                                            xs:type="long"    readonly="false" other:xPath="lastModifiedAt"                                                                          />
+    <attr name="lastModifiedTime"                                                          xs:type="long"    readonly="false" other:xPath="lastModifiedTime"                                                                        />
+    <attr name="operatorId"                                                                xs:type="string"  readonly="false" other:xPath="operatorId"                                                                              />
+    <attr name="tags_name"                                                                 xs:type="string"  readonly="false" other:xPath="tags/name"                                                                               />
+  </rsb:info>
+
+  <!-- The GET method corresponds to SELECT. Within the script block, you can see the URI modified to append a query string parameter. The results of processing are pushed to the schema's output. See SELECT Execution for more information. -->
+  <rsb:script method="GET">
+
+      <!-- GetTokenIn Request-->
+      <rsb:set attr="GetTokenIn.uri"  value="https://api.soracom.io/v1/auth" />
+      <rsb:set attr="GetTokenIn.Method" value="POST"/>
+      <rsb:set attr="GetTokenIn.ContentType"  value="application/json" />
+      <rsb:set attr="GetTokenIn.Data">
+        {
+          "authKey":"[_connection.authKey]",
+          "authKeyId": "[_connection.authKeyId]"
+        }
+      </rsb:set>
+      <!-- 
+      {
+        "authKey": "secret-**********",
+        "authKeyId": "keyId-**********","
+      }
+      -->
+
+      <!-- GetTokenIn Response-->
+      <rsb:set attr="GetTokenIn.ElementMapPath#1" value="/apiKey" />
+      <rsb:set attr="GetTokenIn.ElementMapName#1" value="apiKey" />
+      <rsb:set attr="GetTokenIn.ElementMapPath#2" value="/token" />
+      <rsb:set attr="GetTokenIn.ElementMapName#2" value="token" />
+      <!-- 
+      {
+        "apiKey": "**********",
+        "operatorId": "**********",
+        "userName": "**********",
+        "token": "**********"
+      }
+      -->
+
+      <!-- Call GetToken-->
+      <rsb:call op="jsonproviderGet" input="GetTokenIn" output="GetTokenOut">
+        <rsb:set attr="GetDataIn.EnablePaging" value="True" />
+        <rsb:set attr="GetDataIn.uri" value="https://api.soracom.io/v1/groups?tag_value_match_mode=exact" />
+        <rsb:set attr="GetDataIn.header:name#1" value="X-Soracom-API-Key"/>
+        <rsb:set attr="GetDataIn.header:value#1" value="[GetTokenOut.apiKey]"/>
+        <rsb:set attr="GetDataIn.header:name#2" value="X-Soracom-Token"/>
+        <rsb:set attr="GetDataIn.header:value#2" value="[GetTokenOut.token]"/>
+        <rsb:set attr="GetDataIn.RepeatElement" value="/" />
+        <!-- Call GetData-->
+        <rsb:call op="jsonproviderGet" input="GetDataIn">
+          <rsb:push/>
+        </rsb:call>
+      </rsb:call>
+  </rsb:script>
+
+  <!-- The GET method corresponds to SELECT. Within the script block, you can see the URI modified to append a query string parameter. The results of processing are pushed to the schema's output. See SELECT Execution for more information. -->
+  <rsb:script method="GET">
+    <rsb:call op="jsonproviderGet">
+      <rsb:push/>
+    </rsb:call>
+  </rsb:script>
+
+  <!-- To add support for INSERTS please see the INSERT Execution page within the help for further information and examples. -->
+  <rsb:script method="POST">
+    <rsb:set attr="method" value="POST"/>
+    <rsb:call op="jsonproviderGet">
+      <rsb:throw code="500" desc="Inserts are not currently supported."/>
+      <rsb:push/>
+    </rsb:call>
+  </rsb:script>
+
+  <!-- To add support for UPDATES please see the UPDATE Execution page within the help for further information and examples. -->
+  <rsb:script method="MERGE">
+    <rsb:set attr="method" value="PUT"/>
+    <rsb:call op="jsonproviderGet">
+      <rsb:throw code="500" desc="Updates are not currently supported."/>
+      <rsb:push/>
+    </rsb:call>
+  </rsb:script>
+
+  <!-- To add support for DELETES please see the DELETE Execution page within the help for further information and examples. -->
+  <rsb:script method="DELETE">
+    <rsb:set attr="method" value="DELETE"/>
+    <rsb:call op="jsonproviderGet">
+      <rsb:throw code="500" desc="Deletes are not currently supported."/>
+      <rsb:push/>
+    </rsb:call>
+  </rsb:script>
+
+</rsb:script>
