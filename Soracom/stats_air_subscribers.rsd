@@ -1,0 +1,105 @@
+<rsb:script xmlns:rsb="http://www.rssbus.com/ns/rsbscript/2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- See Column Definitions to specify column behavior and use XPaths to extract column values from JSON. -->
+  <rsb:info title="subscribers" desc="Generated schema file." xmlns:other="http://www.rssbus.com/ns/rsbscript/2/other">
+    <!-- You can modify the name, type, and column size here.  The name must match the values in the rsb:script block below -->
+    <attr name="date"                    xs:type="varchar" readonly="false"              other:xPath="/json/date"                                                                         />
+    <attr name="unixtime"                xs:type="varchar" readonly="false"              other:xPath="/json/unixtime"                                                                     />
+    <attr name="type"                    xs:type="varchar" readonly="false"              other:xPath="/json/dataTrafficStatsMap/*"                          other:pushElementName="true"  />
+    <attr name="downloadByteSizeTotal"   xs:type="integer" readonly="false"              other:xPath="/json/dataTrafficStatsMap/*/downloadByteSizeTotal"                                  />
+    <attr name="downloadPacketSizeTotal" xs:type="integer" readonly="false"              other:xPath="/json/dataTrafficStatsMap/*/downloadPacketSizeTotal"                                />
+    <attr name="uploadByteSizeTotal"     xs:type="integer" readonly="false"              other:xPath="/json/dataTrafficStatsMap/*/uploadByteSizeTotal"                                    />
+    <attr name="uploadPacketSizeTotal"   xs:type="integer" readonly="false"              other:xPath="/json/dataTrafficStatsMap/*/uploadPacketSizeTotal"                                  />
+    <input name="imsi"                   xs:type="string"   readonly="false"                                     />
+    <input name="from"                   xs:type="string"   readonly="false"                                     />
+    <input name="to"                     xs:type="string"   readonly="false"                                     />
+    <input name="period"                 xs:type="string"   readonly="false"                                     />
+  </rsb:info>
+
+  <!-- The GET method corresponds to SELECT. Within the script block, you can see the URI modified to append a query string parameter. The results of processing are pushed to the schema's output. See SELECT Execution for more information. -->
+  <rsb:script method="GET">
+
+      <!-- GetTokenIn Request-->
+      <rsb:set attr="GetTokenIn.uri"  value="https://api.soracom.io/v1/auth" />
+      <rsb:set attr="GetTokenIn.Method" value="POST"/>
+      <rsb:set attr="GetTokenIn.ContentType"  value="application/json" />
+      <rsb:set attr="GetTokenIn.Data">
+        {
+          "authKey":"[_connection.authKey]",
+          "authKeyId": "[_connection.authKeyId]"
+        }
+      </rsb:set>
+      <!-- 
+      {
+        "authKey": "secret-**********",
+        "authKeyId": "keyId-**********","
+      }
+      -->
+
+      <!-- GetTokenIn Response-->
+      <rsb:set attr="GetTokenIn.ElementMapPath#1" value="/apiKey" />
+      <rsb:set attr="GetTokenIn.ElementMapName#1" value="apiKey" />
+      <rsb:set attr="GetTokenIn.ElementMapPath#2" value="/token" />
+      <rsb:set attr="GetTokenIn.ElementMapName#2" value="token" />
+      <!-- 
+      {
+        "apiKey": "**********",
+        "operatorId": "**********",
+        "userName": "**********",
+        "token": "**********"
+      }
+      -->
+
+      <!-- Call GetToken-->
+      <rsb:call op="jsonproviderGet" input="GetTokenIn" output="GetTokenOut">
+        <rsb:set attr="GetDataIn.EnablePaging" value="True" />
+        <!-- 
+        https://api.soracom.io/v1/stats/air/subscribers/'***************'?from=1497522157&to=1620866620&period=month
+        SELECT * FROM stats_air_subscribers where imsi = '***************' and "from" = '1497522157' and "to" = '1620866620' and period='month';
+         -->
+        <rsb:set attr="GetDataIn.uri" value="https://api.soracom.io/v1/stats/air/subscribers/[_input.imsi]?from=[_input.from]&to=[_input.to]&period=[_input.period]" />
+        <rsb:set attr="GetDataIn.header:name#1" value="X-Soracom-API-Key"/>
+        <rsb:set attr="GetDataIn.header:value#1" value="[GetTokenOut.apiKey]"/>
+        <rsb:set attr="GetDataIn.header:name#2" value="X-Soracom-Token"/>
+        <rsb:set attr="GetDataIn.header:value#2" value="[GetTokenOut.token]"/>
+        <!--
+        <rsb:set attr="GetDataIn.RepeatElement" value="/json" />
+        -->
+        <rsb:set attr="GetDataIn.DataModel" value="FLATTENEDDOCUMENTS" />
+        <rsb:set attr="GetDataIn.JSONPath" value="$.;$.dataTrafficStatsMap.*" />
+
+        <!-- Call GetData-->
+        <rsb:call op="jsonproviderGet" input="GetDataIn">
+          <rsb:push/>
+        </rsb:call>
+      </rsb:call>
+  </rsb:script>
+
+  <!-- To add support for INSERTS please see the INSERT Execution page within the help for further information and examples. -->
+  <rsb:script method="POST">
+    <rsb:set attr="method" value="POST"/>
+    <rsb:call op="jsonproviderGet">
+      <rsb:throw code="500" desc="Inserts are not currently supported."/>
+      <rsb:push/>
+    </rsb:call>
+  </rsb:script>
+
+  <!-- To add support for UPDATES please see the UPDATE Execution page within the help for further information and examples. -->
+  <rsb:script method="MERGE">
+    <rsb:set attr="method" value="PUT"/>
+    <rsb:call op="jsonproviderGet">
+      <rsb:throw code="500" desc="Updates are not currently supported."/>
+      <rsb:push/>
+    </rsb:call>
+  </rsb:script>
+
+  <!-- To add support for DELETES please see the DELETE Execution page within the help for further information and examples. -->
+  <rsb:script method="DELETE">
+    <rsb:set attr="method" value="DELETE"/>
+    <rsb:call op="jsonproviderGet">
+      <rsb:throw code="500" desc="Deletes are not currently supported."/>
+      <rsb:push/>
+    </rsb:call>
+  </rsb:script>
+
+</rsb:script>
